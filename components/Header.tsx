@@ -13,11 +13,11 @@ export default function Header() {
   return (
     <>
       <header className="fixed left-0 right-0 top-0 z-[999] border-b border-navy/10 bg-white/95 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto flex h-[74px] max-w-7xl items-center justify-between gap-3 px-4 md:h-[82px] md:px-8">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 md:h-[82px] md:px-8">
           <Link
             href="/"
-            className="flex min-w-0 items-center gap-3 transition hover:opacity-90"
             aria-label="Mộc Nhiên Hotel"
+            className="flex min-w-0 items-center gap-3 transition hover:opacity-90"
           >
             <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm md:h-14 md:w-14">
               <Image
@@ -29,12 +29,12 @@ export default function Header() {
               />
             </div>
 
-            <div className="hidden min-w-0 sm:block">
-              <p className="truncate font-luxury text-xl font-black leading-none text-navy md:text-2xl">
+            <div className="min-w-0">
+              <p className="truncate font-luxury text-[1.25rem] font-black leading-none text-navy sm:text-[1.45rem] md:text-2xl">
                 {hotelInfo.brandName}
               </p>
 
-              <p className="mt-1 truncate text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+              <p className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.18em] text-muted sm:text-[10px] md:text-[11px] md:tracking-[0.22em]">
                 {hotelInfo.slogan}
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden shrink-0 items-center gap-3 sm:flex">
             <a
               href={hotelInfo.zaloLink}
               target="_blank"
@@ -72,7 +72,7 @@ export default function Header() {
         </div>
       </header>
 
-      <div className="h-[74px] md:h-[82px]" />
+      <div className="h-[72px] md:h-[82px]" />
     </>
   );
 }
