@@ -1,0 +1,107 @@
+import Link from "next/link";
+import {
+  DurationKey,
+  formatPrice,
+  getDurationLabel,
+  rooms,
+} from "@/data/site";
+
+export default function Rooms({ duration }: { duration: DurationKey }) {
+  return (
+    <section id="rooms" className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-champagne">
+              Phòng còn trống
+            </p>
+
+            <h2 className="mt-3 max-w-3xl font-luxury text-4xl font-black leading-tight text-navy md:text-5xl">
+              Chọn phòng phù hợp với thời lượng lưu trú.
+            </h2>
+          </div>
+
+          <div className="rounded-3xl bg-cream px-5 py-4 text-sm leading-7 text-muted md:max-w-md">
+            Đang hiển thị giá cho:{" "}
+            <span className="font-black text-navy">
+              {getDurationLabel(duration)}
+            </span>
+            . Giá và phòng trống sẽ được backend xử lý chính xác ở bước sau.
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {rooms.map((room) => {
+            const price = room.prices[duration];
+            const oldPrice = room.oldPrices[duration];
+
+            return (
+              <article
+                key={room.id}
+                className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-cream shadow-sm transition hover:-translate-y-1 hover:border-champagne/50 hover:shadow-soft"
+              >
+                <div
+                  className="h-64 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${room.image}')`,
+                  }}
+                />
+
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-luxury text-2xl font-black leading-tight text-navy">
+                      {room.name}
+                    </h3>
+
+                    <div className="shrink-0 text-right">
+                      <p className="text-xs font-bold text-muted line-through">
+                        {formatPrice(oldPrice)}
+                      </p>
+                      <p className="text-xl font-black text-navy">
+                        {formatPrice(price)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-sm leading-7 text-muted">
+                    {room.description}
+                  </p>
+
+                  <div className="mt-5 grid gap-2">
+                    {room.features.slice(0, 5).map((feature) => (
+                      <div
+                        key={feature}
+                        className="flex items-center gap-2 text-sm font-semibold text-navy"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto pt-6">
+                    <div className="mb-4 flex items-center justify-between rounded-2xl bg-white px-4 py-3">
+                      <p className="text-sm font-bold text-muted">
+                        Tình trạng
+                      </p>
+                      <p className="text-sm font-black text-navy">
+                        Còn {room.available} phòng
+                      </p>
+                    </div>
+
+                    <Link
+                      href={`/booking/${room.id}?duration=${duration}`}
+                      className="inline-flex w-full cursor-pointer justify-center rounded-full bg-navy px-5 py-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
+                    >
+                      Đặt phòng trực tuyến
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
