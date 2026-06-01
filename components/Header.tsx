@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import { hotelInfo } from "@/data/site";
 
 const navItems = [
-  { label: "Phòng", href: "#rooms" },
-  { label: "Ưu đãi", href: "#offers" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Liên hệ", href: "#contact" },
+  { label: "Phòng", href: "/#rooms" },
+  { label: "Ưu đãi", href: "/#offers" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Liên hệ", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -14,10 +13,10 @@ export default function Header() {
     <>
       <header className="fixed left-0 right-0 top-0 z-[999] border-b border-navy/10 bg-white/95 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 md:h-[82px] md:px-8">
-          <Link
+          <a
             href="/"
-            aria-label="Mộc Nhiên Hotel"
-            className="flex min-w-0 items-center gap-3 transition hover:opacity-90"
+            aria-label="Về trang chủ Mộc Nhiên Hotel"
+            className="flex min-w-0 items-center gap-3 rounded-2xl transition hover:opacity-90"
           >
             <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm md:h-14 md:w-14">
               <Image
@@ -38,7 +37,7 @@ export default function Header() {
                 {hotelInfo.slogan}
               </p>
             </div>
-          </Link>
+          </a>
 
           <nav className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
