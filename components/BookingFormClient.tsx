@@ -105,102 +105,6 @@ export default function BookingFormClient({
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <aside className="order-2 lg:order-1">
-            <div className="sticky top-24 overflow-hidden rounded-[2rem] border border-navy/10 bg-white p-3 shadow-soft">
-              <div
-                className="h-64 rounded-[1.5rem] bg-cover bg-center sm:h-80"
-                style={{
-                  backgroundImage: `url('${selectedRoom.image}')`,
-                }}
-              />
-
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-[0.16em] text-champagne">
-                      Phòng đang đặt
-                    </p>
-
-                    <h2 className="mt-2 font-luxury text-3xl font-black leading-tight">
-                      {selectedRoom.name}
-                    </h2>
-                  </div>
-
-                  <div className="shrink-0 rounded-2xl bg-cream px-4 py-3 text-right">
-                    <p className="text-xs font-bold text-muted line-through">
-                      {formatPrice(oldPrice)}
-                    </p>
-                    <p className="text-xl font-black text-navy">
-                      {formatPrice(currentPrice)}
-                    </p>
-                    <p className="text-xs font-bold text-muted">
-                      {durationLabel}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-4 text-sm leading-7 text-muted">
-                  {selectedRoom.description}
-                </p>
-
-                <div className="mt-5 grid gap-2">
-                  {selectedRoom.features.map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-2 text-sm font-semibold text-navy"
-                    >
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-5 grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl bg-cream p-4">
-                    <p className="text-xs font-bold text-muted">Tình trạng</p>
-                    <p className="mt-1 text-lg font-black">
-                      Còn {selectedRoom.available} phòng
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-cream p-4">
-                    <p className="text-xs font-bold text-muted">Tạm tính</p>
-                    <p className="mt-1 text-lg font-black">
-                      {formatPrice(currentPrice)}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-5 rounded-2xl bg-softbeige p-4">
-                  <p className="text-sm font-black">Chi tiết đặt phòng</p>
-
-                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted">
-                    <p>
-                      Loại phòng:{" "}
-                      <span className="font-black text-navy">
-                        {selectedRoom.name}
-                      </span>
-                    </p>
-
-                    <p>
-                      Thời lượng:{" "}
-                      <span className="font-black text-navy">
-                        {durationLabel}
-                      </span>
-                    </p>
-
-                    <p>
-                      Giá tạm tính:{" "}
-                      <span className="font-black text-navy">
-                        {formatPrice(currentPrice)}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-
           <div className="order-1 rounded-[2rem] bg-white p-5 shadow-soft md:p-8 lg:order-2">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-champagne md:tracking-[0.22em]">
               Thông tin khách hàng
@@ -326,46 +230,149 @@ export default function BookingFormClient({
                 />
               </div>
 
-              <div className="rounded-[2rem] border border-navy/10 bg-cream p-4">
-                <p className="text-sm font-black text-navy">
-                  Phương thức thanh toán
-                </p>
-
-                <div className="mt-3 grid gap-3">
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white p-4 text-sm font-bold text-navy transition hover:bg-champagne/10">
-                    <input type="radio" name="payment" defaultChecked />
-                    Thanh toán khi nhận phòng
-                  </label>
-
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white p-4 text-sm font-bold text-navy transition hover:bg-champagne/10">
-                    <input type="radio" name="payment" />
-                    Quét mã QR trên ứng dụng ngân hàng
-                  </label>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="h-14 cursor-pointer rounded-full bg-navy px-6 text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
-              >
-                Xác nhận đặt phòng
-              </button>
-
-              <a
-                href={hotelInfo.zaloLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-navy/15 bg-white px-6 py-4 text-center text-base font-black text-navy transition hover:border-champagne hover:bg-champagne/10"
-              >
-                Chat Zalo nếu cần hỗ trợ
-              </a>
-
-              <p className="text-center text-xs leading-6 text-muted">
-                Sau khi gửi form, khách sạn sẽ liên hệ lại để xác nhận phòng
-                trống, giá và thời gian nhận phòng.
+              <p className="rounded-2xl bg-cream px-4 py-3 text-center text-xs leading-6 text-muted">
+                Sau khi nhập thông tin, vui lòng kiểm tra lại phòng và giá ở
+                phần bên dưới rồi bấm xác nhận đặt phòng.
               </p>
             </form>
           </div>
+
+          <aside className="order-2 lg:order-1">
+            <div className="sticky top-24 overflow-hidden rounded-[2rem] border border-navy/10 bg-white p-3 shadow-soft">
+              <div
+                className="h-64 rounded-[1.5rem] bg-cover bg-center sm:h-80"
+                style={{
+                  backgroundImage: `url('${selectedRoom.image}')`,
+                }}
+              />
+
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.16em] text-champagne">
+                      Phòng đang đặt
+                    </p>
+
+                    <h2 className="mt-2 font-luxury text-3xl font-black leading-tight">
+                      {selectedRoom.name}
+                    </h2>
+                  </div>
+
+                  <div className="shrink-0 rounded-2xl bg-cream px-4 py-3 text-right">
+                    <p className="text-xs font-bold text-muted line-through">
+                      {formatPrice(oldPrice)}
+                    </p>
+                    <p className="text-xl font-black text-navy">
+                      {formatPrice(currentPrice)}
+                    </p>
+                    <p className="text-xs font-bold text-muted">
+                      {durationLabel}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  {selectedRoom.description}
+                </p>
+
+                <div className="mt-5 grid gap-2">
+                  {selectedRoom.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-center gap-2 text-sm font-semibold text-navy"
+                    >
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl bg-cream p-4">
+                    <p className="text-xs font-bold text-muted">Tình trạng</p>
+                    <p className="mt-1 text-lg font-black">
+                      Còn {selectedRoom.available} phòng
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-cream p-4">
+                    <p className="text-xs font-bold text-muted">Tạm tính</p>
+                    <p className="mt-1 text-lg font-black">
+                      {formatPrice(currentPrice)}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-2xl bg-softbeige p-4">
+                  <p className="text-sm font-black">Chi tiết đặt phòng</p>
+
+                  <div className="mt-3 space-y-2 text-sm leading-6 text-muted">
+                    <p>
+                      Loại phòng:{" "}
+                      <span className="font-black text-navy">
+                        {selectedRoom.name}
+                      </span>
+                    </p>
+
+                    <p>
+                      Thời lượng:{" "}
+                      <span className="font-black text-navy">
+                        {durationLabel}
+                      </span>
+                    </p>
+
+                    <p>
+                      Giá tạm tính:{" "}
+                      <span className="font-black text-navy">
+                        {formatPrice(currentPrice)}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-[2rem] border border-navy/10 bg-cream p-4">
+                  <p className="text-sm font-black text-navy">
+                    Phương thức thanh toán
+                  </p>
+
+                  <div className="mt-3 grid gap-3">
+                    <label className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white p-4 text-sm font-bold text-navy transition hover:bg-champagne/10">
+                      <input type="radio" name="payment" defaultChecked />
+                      Thanh toán khi nhận phòng
+                    </label>
+
+                    <label className="flex cursor-pointer items-center gap-3 rounded-2xl bg-white p-4 text-sm font-bold text-navy transition hover:bg-champagne/10">
+                      <input type="radio" name="payment" />
+                      Quét mã QR trên ứng dụng ngân hàng
+                    </label>
+                  </div>
+                </div>
+
+                <div className="mt-5 grid gap-3">
+                  <button
+                    type="button"
+                    className="h-14 cursor-pointer rounded-full bg-navy px-6 text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
+                  >
+                    Xác nhận đặt phòng
+                  </button>
+
+                  <a
+                    href={hotelInfo.zaloLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-navy/15 bg-white px-6 py-4 text-center text-base font-black text-navy transition hover:border-champagne hover:bg-champagne/10"
+                  >
+                    Chat Zalo nếu cần hỗ trợ
+                  </a>
+
+                  <p className="text-center text-xs leading-6 text-muted">
+                    Khách sạn sẽ liên hệ lại để xác nhận phòng trống, giá và
+                    thời gian nhận phòng.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
