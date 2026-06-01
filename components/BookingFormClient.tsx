@@ -98,10 +98,10 @@ export default function BookingFormClient({
             Hoàn tất thông tin để lễ tân xác nhận phòng.
           </h1>
 
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-muted md:text-base">
-            Khách chọn phòng, thời lượng lưu trú và để lại số điện thoại. Lễ tân
-            sẽ gọi hoặc nhắn Zalo để xác nhận phòng trống và giá cuối cùng.
-          </p>
+         <p className="mt-4 max-w-2xl text-sm leading-7 text-muted md:text-base">
+  Vui lòng kiểm tra loại phòng, thời lượng lưu trú và để lại số điện thoại.
+  Lễ tân sẽ gọi hoặc nhắn Zalo để xác nhận phòng trống và giá chính xác.
+</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -230,10 +230,10 @@ export default function BookingFormClient({
                 />
               </div>
 
-              <p className="rounded-2xl bg-cream px-4 py-3 text-center text-xs leading-6 text-muted">
-                Sau khi nhập thông tin, vui lòng kiểm tra lại phòng và giá ở
-                phần bên dưới rồi bấm xác nhận đặt phòng.
-              </p>
+             <p className="rounded-2xl bg-cream px-4 py-3 text-center text-xs leading-6 text-muted">
+  Sau khi nhập thông tin, vui lòng kiểm tra lại phòng, thời lượng và giá tạm
+  tính trước khi xác nhận đặt phòng.
+</p>
             </form>
           </div>
 

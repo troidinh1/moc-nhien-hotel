@@ -17,7 +17,7 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
             </p>
 
             <h2 className="mt-3 max-w-3xl font-luxury text-4xl font-black leading-tight text-navy md:text-5xl">
-              Chọn phòng phù hợp với thời lượng lưu trú.
+              Chọn phòng phù hợp với nhu cầu lưu trú.
             </h2>
           </div>
 
@@ -26,7 +26,8 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
             <span className="font-black text-navy">
               {getDurationLabel(duration)}
             </span>
-            . Giá và phòng trống sẽ được backend xử lý chính xác ở bước sau.
+            . Vui lòng gọi lễ tân hoặc chat Zalo để được xác nhận phòng trống
+            nhanh nhất.
           </div>
         </div>
 
@@ -101,6 +102,11 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
             );
           })}
         </div>
+
+        <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-7 text-muted">
+          Giá trên website là giá tham khảo theo thời lượng lưu trú. Khách sạn
+          sẽ xác nhận lại phòng trống và giá chính xác qua điện thoại hoặc Zalo.
+        </p>
       </div>
     </section>
   );

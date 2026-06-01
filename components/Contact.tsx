@@ -162,9 +162,10 @@ export default function Contact() {
                 Nhập thông tin lưu trú
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-muted">
-                Form được tối ưu để khách đặt phòng trên điện thoại nhanh hơn.
-              </p>
+             <p className="mt-3 text-sm leading-7 text-muted">
+  Điền thông tin bên dưới, lễ tân sẽ liên hệ lại để xác nhận phòng trống,
+  giá và thời gian nhận phòng chính xác.
+</p>
 
               <form className="mt-7 grid gap-4">
                 <div>

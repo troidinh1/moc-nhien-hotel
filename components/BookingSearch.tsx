@@ -105,8 +105,8 @@ export default function BookingSearch({
 
         <div className="mt-4 rounded-2xl bg-cream px-4 py-3">
           <p className="text-sm leading-6 text-muted">
-            Chọn thời lượng lưu trú để xem giá phòng phù hợp. Số phòng trống
-            hiện là dữ liệu demo, phần quản lý thật sẽ làm ở backend.
+            Chọn ngày, giờ nhận phòng và thời lượng lưu trú để xem giá phòng
+            phù hợp. Giá và tình trạng phòng có thể thay đổi theo thời điểm.
           </p>
         </div>
       </form>
