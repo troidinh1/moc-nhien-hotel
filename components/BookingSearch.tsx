@@ -25,33 +25,34 @@ export default function BookingSearch({
   duration: DurationKey;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-10 md:px-8">
+    <section className="mx-auto max-w-7xl px-4 pb-12 md:px-8">
       <form
         action="/"
-        className="rounded-[2rem] border border-navy/10 bg-white p-4 shadow-soft md:p-5"
+        className="rounded-[1.5rem] border border-navy/10 bg-white p-4 shadow-soft md:rounded-[2rem] md:p-5"
       >
         <div className="grid gap-4 md:grid-cols-[1fr_0.8fr_0.9fr_auto]">
           <div>
-            <label className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-muted">
+            <label className="mb-2 block text-sm font-black text-navy">
               Ngày nhận phòng
             </label>
 
             <input
               type="date"
               name="checkinDate"
-              className="min-h-[56px] w-full rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
+              defaultValue="2026-06-01"
+              className="h-14 w-full rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
             />
           </div>
 
           <div>
-            <label className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-muted">
+            <label className="mb-2 block text-sm font-black text-navy">
               Giờ nhận
             </label>
 
             <select
               name="checkinTime"
               defaultValue="10:00"
-              className="min-h-[56px] w-full cursor-pointer rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
+              className="h-14 w-full cursor-pointer rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
             >
               {checkinTimeOptions.map((time) => (
                 <option key={time} value={time}>
@@ -62,14 +63,14 @@ export default function BookingSearch({
           </div>
 
           <div>
-            <label className="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-muted">
+            <label className="mb-2 block text-sm font-black text-navy">
               Thời lượng
             </label>
 
             <select
               name="duration"
               defaultValue={duration}
-              className="min-h-[56px] w-full cursor-pointer rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
+              className="h-14 w-full cursor-pointer rounded-2xl border border-navy/10 bg-cream px-4 text-base font-bold text-navy outline-none transition focus:border-champagne"
             >
               {durationOptions.map((item) => (
                 <option key={item.value} value={item.value}>
@@ -82,7 +83,7 @@ export default function BookingSearch({
           <div className="flex items-end">
             <button
               type="submit"
-              className="min-h-[56px] w-full cursor-pointer rounded-2xl bg-navy px-6 text-center text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95 md:w-auto"
+              className="h-14 w-full cursor-pointer rounded-2xl bg-navy px-6 text-center text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95 md:w-auto"
             >
               Tìm phòng
             </button>
@@ -91,7 +92,7 @@ export default function BookingSearch({
 
         <div className="mt-4 rounded-2xl bg-cream px-4 py-3">
           <p className="text-sm leading-6 text-muted">
-            Giá phòng sẽ tự thay đổi theo thời lượng bạn chọn. Số phòng trống
+            Chọn thời lượng lưu trú để xem giá phòng phù hợp. Số phòng trống
             hiện là dữ liệu demo, phần quản lý thật sẽ làm ở backend.
           </p>
         </div>

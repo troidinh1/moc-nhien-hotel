@@ -8,11 +8,11 @@ import {
 
 export default function Rooms({ duration }: { duration: DurationKey }) {
   return (
-    <section id="rooms" className="bg-white py-16 md:py-24">
+    <section id="rooms" className="bg-white py-14 pb-28 md:py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-champagne">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-champagne md:tracking-[0.25em]">
               Phòng còn trống
             </p>
 
@@ -30,7 +30,7 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-2 lg:grid-cols-3">
           {rooms.map((room) => {
             const price = room.prices[duration];
             const oldPrice = room.oldPrices[duration];
@@ -38,16 +38,16 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
             return (
               <article
                 key={room.id}
-                className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-navy/10 bg-cream shadow-sm transition hover:-translate-y-1 hover:border-champagne/50 hover:shadow-soft"
+                className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-navy/10 bg-cream shadow-sm transition hover:-translate-y-1 hover:border-champagne/50 hover:shadow-soft md:rounded-[2rem]"
               >
                 <div
-                  className="h-64 bg-cover bg-center"
+                  className="h-56 bg-cover bg-center md:h-64"
                   style={{
                     backgroundImage: `url('${room.image}')`,
                   }}
                 />
 
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col p-5 md:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="font-luxury text-2xl font-black leading-tight text-navy">
                       {room.name}
@@ -57,7 +57,7 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
                       <p className="text-xs font-bold text-muted line-through">
                         {formatPrice(oldPrice)}
                       </p>
-                      <p className="text-xl font-black text-navy">
+                      <p className="text-lg font-black text-navy md:text-xl">
                         {formatPrice(price)}
                       </p>
                     </div>
@@ -73,7 +73,7 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
                         key={feature}
                         className="flex items-center gap-2 text-sm font-semibold text-navy"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-champagne" />
                         {feature}
                       </div>
                     ))}
@@ -91,7 +91,7 @@ export default function Rooms({ duration }: { duration: DurationKey }) {
 
                     <Link
                       href={`/booking/${room.id}?duration=${duration}`}
-                      className="inline-flex w-full cursor-pointer justify-center rounded-full bg-navy px-5 py-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
+                      className="inline-flex h-14 w-full cursor-pointer items-center justify-center rounded-full bg-navy px-5 text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
                     >
                       Đặt phòng trực tuyến
                     </Link>

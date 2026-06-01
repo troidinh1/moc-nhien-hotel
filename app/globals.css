@@ -46,3 +46,15 @@ select {
   background: #c99a4a;
   color: #12332b;
 }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
