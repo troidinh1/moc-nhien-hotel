@@ -12,12 +12,13 @@ const navItems = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8">
         <Link
           href="/"
           className="flex min-w-0 items-center gap-3 transition hover:opacity-90"
+          aria-label="Mộc Nhiên Hotel"
         >
-          <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
+          <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm md:h-14 md:w-14">
             <Image
               src="/images/moc-nhien-logo.png"
               alt="Mộc Nhiên Hotel"
@@ -28,10 +29,10 @@ export default function Header() {
           </div>
 
           <div className="hidden min-w-0 sm:block">
-            <p className="font-luxury text-xl font-black leading-none text-navy md:text-2xl">
+            <p className="truncate font-luxury text-xl font-black leading-none text-navy md:text-2xl">
               {hotelInfo.brandName}
             </p>
-            <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
+            <p className="mt-1 truncate text-[11px] font-bold uppercase tracking-[0.22em] text-muted">
               {hotelInfo.slogan}
             </p>
           </div>
@@ -49,19 +50,19 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 md:gap-3">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={hotelInfo.zaloLink}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-11 cursor-pointer items-center justify-center rounded-full border border-navy/10 bg-white px-4 text-sm font-black text-navy shadow-sm transition hover:-translate-y-0.5 hover:border-champagne hover:bg-champagne/10 active:scale-95 md:h-12 md:px-6"
+            className="inline-flex h-11 cursor-pointer items-center justify-center rounded-full border border-navy/10 bg-white px-5 text-sm font-black text-navy shadow-sm transition hover:-translate-y-0.5 hover:border-champagne hover:bg-champagne/10 active:scale-95 md:h-12 md:px-6"
           >
             Chat Zalo
           </a>
 
           <a
             href={`tel:${hotelInfo.hotline}`}
-            className="hidden h-11 cursor-pointer items-center justify-center rounded-full bg-navy px-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95 sm:inline-flex md:h-12 md:px-6"
+            className="hidden h-12 cursor-pointer items-center justify-center rounded-full bg-navy px-6 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95 md:inline-flex"
           >
             Gọi lễ tân
           </a>
