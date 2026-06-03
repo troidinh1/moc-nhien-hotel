@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
@@ -62,18 +63,29 @@ export default function BookingFormClient({
 
   return (
     <main className="min-h-screen bg-cream pb-24 text-navy md:pb-0">
-      <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-navy text-base font-black text-white">
-              M
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-navy/10 bg-white/95 shadow-sm backdrop-blur-xl">
+        <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 md:px-8">
+          <Link
+            href="/"
+            className="flex min-w-0 items-center gap-3 transition hover:opacity-90"
+            aria-label="Về trang chủ Mộc Nhiên Hotel"
+          >
+            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
+              <Image
+                src="/images/moc-nhien-logo.png"
+                alt="Mộc Nhiên Hotel"
+                fill
+                className="object-contain p-1.5"
+                priority
+              />
             </div>
 
-            <div>
-              <p className="font-luxury text-xl font-bold leading-none">
+            <div className="min-w-0">
+              <p className="truncate font-luxury text-xl font-black leading-none text-navy md:text-2xl">
                 {hotelInfo.brandName}
               </p>
-              <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-muted">
+
+              <p className="mt-1 truncate text-[10px] font-bold uppercase tracking-[0.18em] text-muted md:text-[11px] md:tracking-[0.22em]">
                 Đặt phòng trực tuyến
               </p>
             </div>
@@ -81,12 +93,14 @@ export default function BookingFormClient({
 
           <Link
             href="/#rooms"
-            className="cursor-pointer rounded-full border border-navy/15 bg-white px-4 py-3 text-sm font-black text-navy transition hover:border-champagne hover:bg-champagne/10"
+            className="hidden rounded-full border border-navy/10 bg-white px-5 py-3 text-sm font-black text-navy shadow-sm transition hover:border-champagne hover:bg-champagne/10 sm:inline-flex"
           >
             Quay lại
           </Link>
         </div>
       </header>
+
+      <div className="h-[76px]" />
 
       <section className="mx-auto max-w-7xl px-4 py-8 md:px-8 md:py-14">
         <div className="mb-7">
@@ -94,18 +108,19 @@ export default function BookingFormClient({
             Xác nhận đặt phòng
           </p>
 
-          <h1 className="mt-3 font-luxury text-4xl font-black leading-tight text-navy md:text-5xl">
+          <h1 className="mt-3 max-w-4xl font-luxury text-4xl font-black leading-tight text-navy md:text-5xl">
             Hoàn tất thông tin để lễ tân xác nhận phòng.
           </h1>
 
-         <p className="mt-4 max-w-2xl text-sm leading-7 text-muted md:text-base">
-  Vui lòng kiểm tra loại phòng, thời lượng lưu trú và để lại số điện thoại.
-  Lễ tân sẽ gọi hoặc nhắn Zalo để xác nhận phòng trống và giá chính xác.
-</p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-muted md:text-base">
+            Vui lòng kiểm tra loại phòng, thời lượng lưu trú và để lại số điện
+            thoại. Lễ tân sẽ gọi hoặc nhắn Zalo để xác nhận phòng trống và giá
+            chính xác.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="order-1 rounded-[2rem] bg-white p-5 shadow-soft md:p-8 lg:order-2">
+          <section className="order-1 rounded-[2rem] bg-white p-5 shadow-soft md:p-8 lg:order-2">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-champagne md:tracking-[0.22em]">
               Thông tin khách hàng
             </p>
@@ -199,9 +214,8 @@ export default function BookingFormClient({
               <div className="rounded-[2rem] border border-navy/10 bg-cream p-4">
                 <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-sm font-black text-navy">
-                      Giá tạm tính
-                    </p>
+                    <p className="text-sm font-black text-navy">Giá tạm tính</p>
+
                     <p className="mt-1 text-xs leading-6 text-muted">
                       {selectedRoom.name} • {durationLabel}
                     </p>
@@ -211,6 +225,7 @@ export default function BookingFormClient({
                     <p className="text-xs font-bold text-muted line-through">
                       {formatPrice(oldPrice)}
                     </p>
+
                     <p className="text-2xl font-black text-navy">
                       {formatPrice(currentPrice)}
                     </p>
@@ -230,21 +245,24 @@ export default function BookingFormClient({
                 />
               </div>
 
-             <p className="rounded-2xl bg-cream px-4 py-3 text-center text-xs leading-6 text-muted">
-  Sau khi nhập thông tin, vui lòng kiểm tra lại phòng, thời lượng và giá tạm
-  tính trước khi xác nhận đặt phòng.
-</p>
+              <p className="rounded-2xl bg-cream px-4 py-3 text-center text-xs leading-6 text-muted">
+                Sau khi nhập thông tin, vui lòng kiểm tra lại phòng, thời lượng
+                và giá tạm tính trước khi xác nhận đặt phòng.
+              </p>
             </form>
-          </div>
+          </section>
 
           <aside className="order-2 lg:order-1">
             <div className="sticky top-24 overflow-hidden rounded-[2rem] border border-navy/10 bg-white p-3 shadow-soft">
-              <div
-                className="h-64 rounded-[1.5rem] bg-cover bg-center sm:h-80"
-                style={{
-                  backgroundImage: `url('${selectedRoom.image}')`,
-                }}
-              />
+              <div className="relative h-64 overflow-hidden rounded-[1.5rem] sm:h-80">
+                <Image
+                  src={selectedRoom.image}
+                  alt={selectedRoom.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
 
               <div className="p-4">
                 <div className="flex items-start justify-between gap-4">
@@ -262,9 +280,11 @@ export default function BookingFormClient({
                     <p className="text-xs font-bold text-muted line-through">
                       {formatPrice(oldPrice)}
                     </p>
+
                     <p className="text-xl font-black text-navy">
                       {formatPrice(currentPrice)}
                     </p>
+
                     <p className="text-xs font-bold text-muted">
                       {durationLabel}
                     </p>
@@ -349,12 +369,12 @@ export default function BookingFormClient({
                 </div>
 
                 <div className="mt-5 grid gap-3">
-                  <button
-                    type="button"
-                    className="h-14 cursor-pointer rounded-full bg-navy px-6 text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
+                  <Link
+                    href={`/booking-success?room=${selectedRoom.id}&duration=${selectedDuration}`}
+                    className="inline-flex h-14 cursor-pointer items-center justify-center rounded-full bg-navy px-6 text-base font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf active:scale-95"
                   >
                     Xác nhận đặt phòng
-                  </button>
+                  </Link>
 
                   <a
                     href={hotelInfo.zaloLink}
@@ -376,11 +396,11 @@ export default function BookingFormClient({
         </div>
       </section>
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-navy/10 bg-white/95 p-3 shadow-[0_-10px_30px_rgba(18,51,43,0.12)] backdrop-blur-xl md:hidden">
-        <div className="grid grid-cols-2 gap-3">
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-navy/10 bg-white/95 px-4 pb-[calc(12px+env(safe-area-inset-bottom))] pt-3 shadow-[0_-12px_35px_rgba(18,51,43,0.14)] backdrop-blur-xl md:hidden">
+        <div className="mx-auto grid max-w-md grid-cols-2 gap-3">
           <a
             href={`tel:${hotelInfo.hotline}`}
-            className="rounded-full border border-navy/15 bg-white px-4 py-3 text-center text-sm font-black text-navy"
+            className="inline-flex h-12 items-center justify-center rounded-full border border-navy/15 bg-white px-4 text-sm font-black text-navy shadow-sm active:scale-95"
           >
             Gọi lễ tân
           </a>
@@ -389,7 +409,7 @@ export default function BookingFormClient({
             href={hotelInfo.zaloLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-champagne px-4 py-3 text-center text-sm font-black text-navy shadow-sm"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-champagne px-4 text-sm font-black text-navy shadow-sm active:scale-95"
           >
             Chat Zalo
           </a>
